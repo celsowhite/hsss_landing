@@ -3,10 +3,12 @@
     "@alrra/travis-scripts": "^1.1.1",
     "apache-server-configs": "2.14.0",
     "archiver": "^0.20.0",
+    "browser-sync": "^2.10.0",
     "del": "^2.0.2",
     "glob": "^6.0.1",
-    "gulp": "^3.8.11",
+    "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.2",
+    "gulp-connect": "^2.2.0",
     "gulp-header": "^1.2.2",
     "gulp-jscs": "^3.0.1",
     "gulp-jshint": "^2.0.0",
@@ -27,7 +29,7 @@
     "directories": {
       "archive": "archive",
       "dist": "dist",
-      "src": "src",
+      "app": "app",
       "test": "test"
     }
   },

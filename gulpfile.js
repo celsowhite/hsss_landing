@@ -2,6 +2,7 @@ var fs = require('fs');
 var path = require('path');
 
 var gulp = require('gulp');
+var connect = require('gulp-connect');
 
 // Load all gulp plugins automatically
 // and attach them to the `plugins` object
@@ -83,7 +84,7 @@ gulp.task('copy:.htaccess', function () {
 });
 
 gulp.task('copy:index.html', function () {
-    return gulp.src(dirs.src + '/index.html')
+    return gulp.src(dirs.app + '/index.html')
                .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
                .pipe(gulp.dest(dirs.dist));
 });
@@ -105,7 +106,7 @@ gulp.task('copy:main.css', function () {
                     ' | ' + pkg.license.type + ' License' +
                     ' | ' + pkg.homepage + ' */\n\n';
 
-    return gulp.src(dirs.src + '/css/main.css')
+    return gulp.src(dirs.app + '/css/main.css')
                .pipe(plugins.header(banner))
                .pipe(plugins.autoprefixer({
                    browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
@@ -118,12 +119,12 @@ gulp.task('copy:misc', function () {
     return gulp.src([
 
         // Copy all files
-        dirs.src + '/**/*',
+        dirs.app + '/**/*',
 
         // Exclude the following files
         // (other tasks will handle the copying of these files)
-        '!' + dirs.src + '/css/main.css',
-        '!' + dirs.src + '/index.html'
+        '!' + dirs.app + '/css/main.css',
+        '!' + dirs.app + '/index.html'
 
     ], {
 
@@ -141,7 +142,7 @@ gulp.task('copy:normalize', function () {
 gulp.task('lint:js', function () {
     return gulp.src([
         'gulpfile.js',
-        dirs.src + '/js/*.js',
+        dirs.app + '/js/*.js',
         dirs.test + '/*.js'
     ]).pipe(plugins.jscs())
       .pipe(plugins.jshint())
@@ -164,9 +165,16 @@ gulp.task('archive', function (done) {
 
 gulp.task('build', function (done) {
     runSequence(
-        ['clean', 'lint:js'],
+        ['clean'],
         'copy',
     done);
+});
+
+gulp.task('serve', function (done) {
+  connect.server({
+    liveReload: true,
+    root: 'dist'
+  })
 });
 
 gulp.task('default', ['build']);
