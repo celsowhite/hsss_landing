@@ -1,0 +1,53 @@
+@import "compass";
+@import "base/_variables.scss";
+@import "base/_mixins.scss";
+
+/*==================================
+FONTS
+==================================*/
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+    margin: 0px;
+}
+
+body, p, h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+
+    &.small {
+        font-size: 14px;
+    }
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin: 0px 0px 20px;
+}
+
+h2 {
+    font-size: 30px;
+    line-height: 33px;
+    font-weight: 700;
+
+    @include mobile_landscape {
+        font-size: 25px;
+    }
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 700;
+}
