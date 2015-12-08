@@ -202,7 +202,7 @@ gulp.task('archive', function (done) {
 gulp.task('build', function (done) {
     runSequence(
         ['clean'],
-        'sassify',
+        // 'sassify',
         'copy',
     done);
 });

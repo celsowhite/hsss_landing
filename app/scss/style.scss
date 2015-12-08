@@ -1,6 +1,4 @@
-//I HAVE TO COMMENT OUT COMPASS, GULP-SASS NOT COMPATIBLE
-//ALT: BOURBON MAYBE?
-//@import "compass";
+@import "compass";
 @import "base/_variables.scss";
 @import "base/_mixins.scss";
 
@@ -26,6 +24,7 @@ p {
     font-size: 16px;
     font-weight: 400;
     margin-bottom: 20px;
+    color: blue;
 
     &.small {
         font-size: 14px;
