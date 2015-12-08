@@ -130,7 +130,7 @@ gulp.task('copy:misc', function () {
         // (other tasks will handle the copying of these files)
         '!' + dirs.app + '/css/main.css',
         '!' + dirs.app + '/index.html',
-        '!' + dirs.app + '/scss'
+        '!' + dirs.app + '/scss/**/*'
 
     ], {
 
@@ -167,11 +167,12 @@ gulp.task('lint:js', function () {
 //});
 
 gulp.task('compassify', function () {
-  gutil.log(gutil.colors.cyan('running compass compile'));
+  gutil.log(gutil.colors.grey('running compass compile'));
   return gulp.src(dirs.app + '/scss/**/*.scss')
     .pipe(compass({
       config_file: dirs.app + '/config.rb',
-      sass: dirs.app + '/scss'
+      sass: dirs.app + '/scss',
+      css: dirs.dist + '/css'
     }))
     //ERROR LOGGING
     .on('error', function(error) {
@@ -202,7 +203,7 @@ gulp.task('archive', function (done) {
 gulp.task('build', function (done) {
     runSequence(
         ['clean'],
-        'sassify',
+        //'sassify',
         'copy',
     done);
 });
