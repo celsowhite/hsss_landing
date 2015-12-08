@@ -2,9 +2,9 @@
 @import "base/_variables.scss";
 @import "base/_mixins.scss";
 
-/*==================================
+/*======================================
 FONTS
-==================================*/
+======================================*/
 
 * {
     box-sizing: border-box;
@@ -12,43 +12,114 @@ FONTS
     -moz-osx-font-smoothing: grayscale;
 }
 
-ul {
-    margin: 0px;
+body, p, h1, h2, h3 {
+  font-family: "proxima-nova",sans-serif;
 }
 
-body, p, h1, h2, h3 {
-    font-family: 'Roboto', sans-serif;
+p, h1, h2, h3 {
+  margin-top: 0px;
+  margin-bottom: 10px;
 }
 
 p {
-    font-size: 16px;
     font-weight: 400;
-    margin-bottom: 20px;
-    color: blue;
-
-    &.small {
-        font-size: 14px;
-    }
 }
 
 h1 {
-    font-size: 50px;
-    font-weight: 700;
-    margin: 0px 0px 20px;
-}
-
-h2 {
     font-size: 30px;
-    line-height: 33px;
-    font-weight: 700;
-
-    @include mobile_landscape {
-        font-size: 25px;
-    }
+    font-weight: 800;
+    text-transform: uppercase;
 }
 
-h3 {
-    font-size: 18px;
-    line-height: 20px;
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*======================================
+COMPONENTS
+======================================*/
+
+/*=== Buttons ===*/
+
+a.primary_button {
+    border: 2px solid #ffffff;
+    display: inline-block;
+    padding: 5px 30px;
+    font-size: 20px;
     font-weight: 700;
+}
+
+/*=== Lists ===*/
+
+ul {
+    list-style-type: none;
+    -webkit-padding-start: 0;
+}
+
+/*=== Colors ===*/
+
+.grey {
+    color: $grey;
+}
+
+/*======================================
+MAIN PANEL
+======================================*/
+
+nav.main_panel {
+    background: $darkgrey;
+    width: 15%;
+    height: 100%;
+    position: fixed;
+    text-align: center;
+    color: $white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*=== Logo ===*/
+
+.logo_container {
+    margin-bottom: 30px;
+}
+
+/*=== Menu ===*/
+
+ul.menu {
+
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    justify-content: center;
+
+    li {
+        font-weight: 700;
+        font-size: 20px;
+        color: $white;
+        padding: 3px 0px;
+    }
+
+}
+
+/*=== Social ===*/
+
+ul.social_list {
+
+    li {
+        display: inline-block;
+        padding: 0px 13px;
+    }
+
+}
+
+/*======================================
+OVERALL STRUCTURE
+======================================*/
+
+.main_content {
+    width: 85%;
+    float: right;
 }
