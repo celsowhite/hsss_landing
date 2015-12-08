@@ -130,7 +130,7 @@ gulp.task('copy:misc', function () {
         // (other tasks will handle the copying of these files)
         '!' + dirs.app + '/css/main.css',
         '!' + dirs.app + '/index.html',
-        '!' + dirs.app + '/scss'
+        '!' + dirs.app + '/scss/**/*'
 
     ], {
 
