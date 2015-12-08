@@ -2,7 +2,11 @@ var fs = require('fs');
 var path = require('path');
 
 var gulp = require('gulp');
-var connect = require('gulp-connect');
+var browserSync = require('browser-sync').create();
+var reload      = browserSync.reload;
+var sass = require('gulp-sass');
+var watch = require('gulp-watch');
+var gutil = require('gulp-util');
 
 // Load all gulp plugins automatically
 // and attach them to the `plugins` object
@@ -73,8 +77,8 @@ gulp.task('copy', [
     'copy:jquery',
     'copy:license',
     'copy:main.css',
-    'copy:misc',
-    'copy:normalize'
+    'copy:normalize',
+    'copy:misc'
 ]);
 
 gulp.task('copy:.htaccess', function () {
@@ -124,7 +128,8 @@ gulp.task('copy:misc', function () {
         // Exclude the following files
         // (other tasks will handle the copying of these files)
         '!' + dirs.app + '/css/main.css',
-        '!' + dirs.app + '/index.html'
+        '!' + dirs.app + '/index.html',
+        '!' + dirs.app + '/scss/**/*'
 
     ], {
 
@@ -139,6 +144,7 @@ gulp.task('copy:normalize', function () {
                .pipe(gulp.dest(dirs.dist + '/css'));
 });
 
+//WE'RE JUST NOT GONNA LINT -- SORRY
 gulp.task('lint:js', function () {
     return gulp.src([
         'gulpfile.js',
@@ -148,6 +154,15 @@ gulp.task('lint:js', function () {
       .pipe(plugins.jshint())
       .pipe(plugins.jshint.reporter('jshint-stylish'))
       .pipe(plugins.jshint.reporter('fail'));
+});
+
+//SASS
+gulp.task('sassify', function () {
+  gutil.log(gutil.colors.cyan('Consider yourself...'), gutil.colors.green('sassified'));
+  return gulp.src(dirs.app + '/scss/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest(dirs.dist + '/css'))
+    .pipe(browserSync.stream());
 });
 
 
@@ -166,15 +181,25 @@ gulp.task('archive', function (done) {
 gulp.task('build', function (done) {
     runSequence(
         ['clean'],
+        'sassify',
         'copy',
     done);
 });
 
-gulp.task('serve', function (done) {
-  connect.server({
-    liveReload: true,
-    root: 'dist'
-  })
+gulp.task('serve', function () {
+  browserSync.init({
+    server: {
+      baseDir: "dist"
+    }
+  });
+
+  gulp.watch(dirs.app + '/scss/**/*.scss', ['sassify']);
+
+  //WATCH EVERYTHING ELSE
+  gulp.watch(dirs.app + '/js/**', ['copy']);
+  gulp.watch(dirs.app + '/index.html', ['copy']);
+  gulp.watch(dirs.dist + '/index.html').on('change', browserSync.reload);
+  gulp.watch(dirs.dist + '/js/**').on('change', browserSync.reload);
 });
 
 gulp.task('default', ['build']);
