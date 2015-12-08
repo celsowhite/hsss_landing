@@ -50,6 +50,21 @@ a.primary_button {
     font-weight: 700;
 }
 
+a.play_button {
+    background: rgba(255,255,255,.1);
+    padding: 10px 40px;
+    border: 2px solid #fff;
+    display: inline-block;
+    font-size: 20px;
+    color: #fff;
+
+    .fa-play {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
+
 /*=== Lists ===*/
 
 ul {
@@ -60,7 +75,7 @@ ul {
 /*=== Colors ===*/
 
 .grey {
-    color: $grey;
+    color: $lightgrey;
 }
 
 /*======================================
@@ -119,7 +134,91 @@ ul.social_list {
 OVERALL STRUCTURE
 ======================================*/
 
-.main_content {
+#main_content {
     width: 85%;
     float: right;
+}
+
+/*======================================
+FULL WIDTH SECTIONS
+======================================*/
+
+/*=== Gerenal Styles for each Section ===*/
+
+.fp-tableCell {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+p.section_content {
+    color: $white;
+    font-size: 30px;
+    padding: 0px 20px;
+}
+
+/*=== Section with Full Screen Background image ===*/
+
+.section.bgimg {
+
+    .fp-tableCell {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    p.section_content {
+        text-align: center;
+        margin-bottom: 50px;
+        text-shadow: 1px 1px #000;
+        width: 80%;
+    }
+
+    &:before {
+        @include overlay(rgba(0,0,0,.5));
+        z-index: 9;
+    }
+
+}
+
+/*=== Section with Screenshot on the left ===*/
+
+.section.screenshot {
+
+    background: $mediumgrey;
+
+    .fp-tableCell {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .screenshot_container_left {
+        width: 55%;
+        padding-right: 20px;
+
+        img {
+            display: block;
+            width: 100%;
+            box-shadow: 2px 2px 15px $darkgrey;
+        }
+    }
+
+    .screenshot_container_right {
+        width: 55%;
+        padding-left: 20px;
+
+        img {
+            display: block;
+            width: 100%;
+            box-shadow: 2px 2px 15px $darkgrey;
+        }
+    }
+
+    p.section_content {
+        width: 50%;
+    }
+    
 }
