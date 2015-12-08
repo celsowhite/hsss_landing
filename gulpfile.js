@@ -5,6 +5,7 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var reload      = browserSync.reload;
 var sass = require('gulp-sass');
+var compass = require('gulp-compass');
 var watch = require('gulp-watch');
 var gutil = require('gulp-util');
 
@@ -129,7 +130,7 @@ gulp.task('copy:misc', function () {
         // (other tasks will handle the copying of these files)
         '!' + dirs.app + '/css/main.css',
         '!' + dirs.app + '/index.html',
-        '!' + dirs.app + '/scss/**/*'
+        '!' + dirs.app + '/scss'
 
     ], {
 
@@ -157,10 +158,30 @@ gulp.task('lint:js', function () {
 });
 
 //SASS
-gulp.task('sassify', function () {
-  gutil.log(gutil.colors.cyan('Consider yourself...'), gutil.colors.green('sassified'));
+//gulp.task('sassify', function () {
+//  gutil.log(gutil.colors.cyan('Consider yourself...'), gutil.colors.green('sassified'));
+//  return gulp.src(dirs.app + '/scss/**/*.scss')
+//    .pipe(sass().on('error', sass.logError))
+//    .pipe(gulp.dest(dirs.dist + '/css'))
+//    .pipe(browserSync.stream());
+//});
+
+gulp.task('compassify', function () {
+  gutil.log(gutil.colors.cyan('running compass compile'));
   return gulp.src(dirs.app + '/scss/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
+    .pipe(compass({
+      config_file: dirs.app + '/config.rb',
+      sass: dirs.app + '/scss'
+    }))
+    //ERROR LOGGING
+    .on('error', function(error) {
+      gutil.log(gutil.colors.red('ERROR --', error));
+      this.emit('end');
+    })
+    .pipe(plugins.autoprefixer({
+      browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
+      cascade: false
+    }))
     .pipe(gulp.dest(dirs.dist + '/css'))
     .pipe(browserSync.stream());
 });
@@ -193,7 +214,8 @@ gulp.task('serve', function () {
     }
   });
 
-  gulp.watch(dirs.app + '/scss/**/*.scss', ['sassify']);
+  //gulp.watch(dirs.app + '/scss/**/*.scss', ['sassify']);
+  gulp.watch(dirs.app + '/scss/**/*.scss', ['compassify']);
 
   //WATCH EVERYTHING ELSE
   gulp.watch(dirs.app + '/js/**', ['copy']);
