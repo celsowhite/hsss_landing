@@ -184,7 +184,7 @@ gulp.task('archive', function (done) {
 gulp.task('build', function (done) {
     runSequence(
         ['clean'],
-        // 'sassify',
+        'compassify',
         'copy',
     done);
 });
