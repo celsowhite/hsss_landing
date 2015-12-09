@@ -183,6 +183,9 @@ p.section_content {
 
 .section.bgimg {
 
+    background-size: cover;
+    background-repeat: no-repeat;
+
     .fp-tableCell {
         flex-direction: column;
         justify-content: center;
@@ -208,6 +211,8 @@ p.section_content {
 .section.screenshot {
 
     background: $mediumgrey;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     .fp-tableCell {
         flex-direction: row;
@@ -239,6 +244,11 @@ p.section_content {
 
     p.section_content {
         width: 50%;
+    }
+
+    &:before {
+        @include overlay(rgba(0,0,0,.5));
+        z-index: 9;
     }
     
 }
