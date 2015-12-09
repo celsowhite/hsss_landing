@@ -79,6 +79,7 @@ gulp.task('copy', [
     'copy:license',
     'copy:normalize',
     'copy:image',
+    'copy:rangeslider',
     'copy:misc'
 ]);
 
@@ -86,6 +87,11 @@ gulp.task('copy:.htaccess', function () {
     return gulp.src('node_modules/apache-server-configs/dist/.htaccess')
                .pipe(plugins.replace(/# ErrorDocument/g, 'ErrorDocument'))
                .pipe(gulp.dest(dirs.dist));
+});
+
+gulp.task('copy:rangeslider', function () {
+  return gulp.src(['node_modules/rangeslider.js/dist/rangeslider.min.js', 'node_modules/rangeslider.js/dist/rangeslider.css'])
+    .pipe(gulp.dest(dirs.dist + '/vendor'));
 });
 
 gulp.task('copy:index.html', function () {
