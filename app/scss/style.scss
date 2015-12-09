@@ -78,6 +78,16 @@ ul {
     color: $lightgrey;
 }
 
+/*=== Up/Down Navigation ===*/
+
+.section_navigation {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 85%;
+    right: 0;
+}
+
 /*======================================
 MAIN PANEL
 ======================================*/
