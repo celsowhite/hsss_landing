@@ -202,6 +202,7 @@ gulp.task('serve', function () {
   //WATCH EVERYTHING ELSE
   gulp.watch(dirs.app + '/js/**', ['copy']);
   gulp.watch(dirs.app + '/index.html', ['copy']);
+  gulp.watch(dirs.app + '/img/**/*', ['copy']);
   gulp.watch(dirs.dist + '/index.html').on('change', browserSync.reload);
   gulp.watch(dirs.dist + '/js/**').on('change', browserSync.reload);
 });
