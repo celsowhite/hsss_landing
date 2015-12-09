@@ -77,8 +77,8 @@ gulp.task('copy', [
     'copy:index.html',
     'copy:jquery',
     'copy:license',
-    'copy:main.css',
     'copy:normalize',
+    'copy:image',
     'copy:misc'
 ]);
 
@@ -105,19 +105,9 @@ gulp.task('copy:license', function () {
                .pipe(gulp.dest(dirs.dist));
 });
 
-gulp.task('copy:main.css', function () {
-
-    var banner = '/*! HTML5 Boilerplate v' + pkg.version +
-                    ' | ' + pkg.license.type + ' License' +
-                    ' | ' + pkg.homepage + ' */\n\n';
-
-    return gulp.src(dirs.app + '/css/main.css')
-               .pipe(plugins.header(banner))
-               .pipe(plugins.autoprefixer({
-                   browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
-                   cascade: false
-               }))
-               .pipe(gulp.dest(dirs.dist + '/css'));
+gulp.task('copy:image', function () {
+  return gulp.src(dirs.app + '/img/**/*')
+    .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('copy:misc', function () {
@@ -156,15 +146,6 @@ gulp.task('lint:js', function () {
       .pipe(plugins.jshint.reporter('jshint-stylish'))
       .pipe(plugins.jshint.reporter('fail'));
 });
-
-//SASS
-//gulp.task('sassify', function () {
-//  gutil.log(gutil.colors.cyan('Consider yourself...'), gutil.colors.green('sassified'));
-//  return gulp.src(dirs.app + '/scss/**/*.scss')
-//    .pipe(sass().on('error', sass.logError))
-//    .pipe(gulp.dest(dirs.dist + '/css'))
-//    .pipe(browserSync.stream());
-//});
 
 gulp.task('compassify', function () {
   gutil.log(gutil.colors.grey('running compass compile'));
