@@ -8,6 +8,9 @@ var sass = require('gulp-sass');
 var compass = require('gulp-compass');
 var watch = require('gulp-watch');
 var gutil = require('gulp-util');
+var concat = require('gulp-concat');
+var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
 
 // Load all gulp plugins automatically
 // and attach them to the `plugins` object
@@ -126,7 +129,8 @@ gulp.task('copy:misc', function () {
         // (other tasks will handle the copying of these files)
         '!' + dirs.app + '/css/main.css',
         '!' + dirs.app + '/index.html',
-        '!' + dirs.app + '/scss/**/*'
+        '!' + dirs.app + '/scss/**/*',
+        '!' + dirs.app + '/js/**/*'
 
     ], {
 
@@ -151,6 +155,15 @@ gulp.task('lint:js', function () {
       .pipe(plugins.jshint())
       .pipe(plugins.jshint.reporter('jshint-stylish'))
       .pipe(plugins.jshint.reporter('fail'));
+});
+
+gulp.task('jsprep', function () {
+  gutil.log(gutil.colors.grey('preparing JS for production'));
+  return gulp.src(dirs.app + '/js/**/*.js')
+    .pipe(concat('production.min.js'))
+    .pipe(uglify({mangle: true, compress: true}))
+    .pipe(gulp.dest(dirs.dist + '/js'))
+
 });
 
 gulp.task('compassify', function () {
@@ -191,6 +204,7 @@ gulp.task('build', function (done) {
     runSequence(
         ['clean'],
         'compassify',
+        'jsprep',
         'copy',
     done);
 });
@@ -206,7 +220,7 @@ gulp.task('serve', function () {
   gulp.watch(dirs.app + '/scss/**/*.scss', ['compassify']);
 
   //WATCH EVERYTHING ELSE
-  gulp.watch(dirs.app + '/js/**', ['copy']);
+  gulp.watch(dirs.app + '/js/**', ['jsprep']);
   gulp.watch(dirs.app + '/index.html', ['copy']);
   gulp.watch(dirs.app + '/img/**/*', ['copy']);
   gulp.watch(dirs.dist + '/index.html').on('change', browserSync.reload);
