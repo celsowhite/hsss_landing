@@ -55,6 +55,32 @@ a.primary_button {
     font-weight: 700;
 }
 
+a.solid_button {
+    border: 2px solid #ffffff;
+    background: rgba(255,255,255,1);
+    display: inline-block;
+    width : 155px;
+    margin : 0 25px;
+    font-size: 20px;
+    font-weight: 700;
+    color : #333;
+    text-shadow: none;
+    
+    img {
+        height : 40px;
+        position : relative;
+        top : 2px;
+    }
+
+    .button_text {
+        bottom: 10px;
+        position: relative;
+        left: 3px;
+        width: 60px;
+        display: inline-block;
+    }
+}
+
 a.play_button {
     background: rgba(255,255,255,.1);
     padding: 10px 40px;
