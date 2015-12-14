@@ -90,7 +90,7 @@ gulp.task('copy:.htaccess', function () {
 });
 
 gulp.task('copy:rangeslider', function () {
-  return gulp.src(['node_modules/rangeslider.js/dist/rangeslider.min.js', 'node_modules/rangeslider.js/dist/rangeslider.css'])
+  return gulp.src(['node_modules/rangeslider.js/dist/rangeslider.min.js'])
     .pipe(gulp.dest(dirs.dist + '/vendor'));
 });
 

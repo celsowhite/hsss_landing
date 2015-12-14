@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.6/jquery.fullPage.min.css">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="vendor/rangeslider.css"/>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
@@ -142,9 +141,20 @@
 
 
             <div class="section bgimg" style="background-image: url('/img/background-grain.png')">
-                <p class="section_content">Act 1 Blah</p>
-                <input type="range" min="0" max="10" step="1" value="5">
-                <output></output>
+                <p class="section_content">Do you think they mean what they say here?</p>
+                <div class="section_content">
+                    <div class="range-container">
+                        <input type="range" min="0" max="10" step="1" value="5">
+                    </div>
+                    <div class="range-container">
+                        <span class="float-left">1</span>
+                        <output></output>
+                        <span class="float-right">10</span>
+                    </div>
+                    <div>
+                        <a href="#" class="primary_button">Send</a>
+                    </div>
+                </div>
             </div>
 
             <div class="section bgimg" style="background-image: url('/img/background-train.png')">
@@ -221,6 +231,7 @@
         <!-- Fullpage JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.6/jquery.fullPage.min.js"></script>
         <script src="vendor/rangeslider.min.js"></script>
+        <script src="js/sliders.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 

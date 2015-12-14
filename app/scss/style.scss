@@ -83,6 +83,16 @@ ul {
     color: $lightgrey;
 }
 
+/*=== Helpers ===*/
+
+.float-left {
+    float: left !important;
+}
+
+.float-right {
+    float: right !important;
+}
+
 /*=== Up/Down Navigation ===*/
 
 .section_navigation {
@@ -93,6 +103,7 @@ ul {
     right: 0;
     font-size: 40px;
     color: $white;
+    user-select         : none;
 
     a {
         cursor: pointer;
@@ -288,6 +299,64 @@ PAGE OVERLAYS
         transition: opacity .5s ease-in-out;
     }
 }
+
+/*=== RANGE SLIDER INFO ===*/
+
+.range-container {
+    width : 50%;
+    margin : auto;
+    margin-bottom: 25px;
+}
+.rangeslider,
+.rangeslider__fill {
+    display: block;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.rangeslider {
+    position: relative;
+    border: white 1px solid;
+    width : 60%;
+}
+
+.rangeslider--horizontal {
+    height: 26px;
+    width: 100%;
+}
+
+.rangeslider__fill {
+    background: rgba(255, 255, 255, .4);
+    position: absolute;
+}
+.rangeslider--horizontal .rangeslider__fill {
+    top: 0;
+    height: 100%;
+}
+.rangeslider--vertical .rangeslider__fill {
+    bottom: 0;
+    width: 100%;
+}
+
+.rangeslider__handle {
+    background: white;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+.rangeslider--horizontal .rangeslider__handle {
+    top: -7px;
+    touch-action: pan-y;
+    -ms-touch-action: pan-y;
+}
+
+input[type="range"]:focus + .rangeslider .rangeslider__handle {
+    box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+}
+
 
 /*=== Back Button ===*/
 
