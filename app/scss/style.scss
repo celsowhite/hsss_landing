@@ -401,3 +401,63 @@ ul.team_list {
         font-size: 23px;
     }
 }
+
+/*======================================
+AUDIO PLAYER STYLING
+======================================*/
+
+.mejs-container {
+    background: rgba(0,0,0,0.4);
+    border: 2px solid #fff;
+    width: 600px !important;
+    height: 60px !important;
+}
+
+.mejs-container .mejs-controls {
+    background: none;
+    top: 12px;
+    padding: 0px 20px;
+}
+
+.mejs-controls button {
+    outline: 0 !important;
+}
+
+/*=== Progress Bar ===*/
+
+.mejs-time-rail {
+    width: 380px !important;
+}
+
+.mejs-time-total {
+    background: transparent !important;
+    border: 1px solid #fff;
+    border-radius: 0px !important;
+}
+
+span.mejs-time-total.mejs-time-slider {
+    height: 15px !important;
+    width: 370px !important;
+}
+
+.mejs-controls .mejs-time-rail .mejs-time-loaded {
+    background: transparent;
+}
+
+span.mejs-time-current {
+    background: #fff !important;
+    border-radius: 0px !important;
+    height: 13px !important;
+}
+
+/*=== Volume ===*/
+
+.mejs-horizontal-volume-total {
+    border-radius: 0px !important;
+    background: transparent !important;
+    border: 1px solid #fff !important;
+}
+
+.mejs-horizontal-volume-current {
+    background: #fff !important;
+}

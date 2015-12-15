@@ -20,6 +20,10 @@ $(document).ready(function() {
 
 	});
 
+	/*=== Media Element HTML5 player ===*/
+
+	$('audio').mediaelementplayer();
+
 	/*=== Page Links ===*/
 
 	$('.about_link').click(function(e){
