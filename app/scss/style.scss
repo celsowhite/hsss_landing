@@ -349,7 +349,7 @@ PAGE OVERLAYS
     transition: opacity .5s ease-in-out;
 
     .content {
-        width: 80%;
+        width: 90%;
         text-align: center;
         margin: 0 auto;
 
@@ -368,7 +368,55 @@ PAGE OVERLAYS
 /*=== Video Page Overlay ===*/
 
 .page_overlay#trailer {
-    background: rgba(255,255,255,.8);
+    background: rgba(255,255,255,.3);
+}
+
+/*======================================
+TEAM PAGE
+======================================*/
+
+ul.team_list {
+    display: flex;
+    flex-flow: row wrap;
+
+    li {
+        width: 50%;
+        padding: 0px 10px;
+        margin-bottom: 30px;
+    }
+}
+
+.team_member_container {
+    display: flex;
+
+    .image_social {
+        width: 30%;
+        padding-right: 10px;
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+    }
+
+    .bio {
+        width: 65%;
+        text-align: left;
+
+        p {
+            font-size: 18px;
+        }
+    }
+}
+
+.team_social {
+    background: #000;
+    color: #fff;
+    padding: 3px 0px;
+
+    i {
+        padding: 0px 3px;
+    }
 }
 
 /*=== RANGE SLIDER INFO ===*/
@@ -439,12 +487,12 @@ a.back_to_story {
     cursor: pointer;
 }
 
-/*=== Team Page ===*/
-
-ul.team_list {
-    li {
-        font-size: 23px;
-    }
+a.try_the_demo {
+    position: absolute;
+    top: 135px;
+    left: 50px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 /*======================================

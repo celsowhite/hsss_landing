@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 	$('#main_content').fullpage({
 		navigation: false,
-		anchors:['intro', 'meeting', 'her_recollection', 'act1', 'his_recollection', 'cuddleroom', 'cuddleaudio', 'question', 'herstory', 'hisstory', 'slider', 'finalaudio'],
+		anchors:['about', 'meeting', 'her_recollection', 'act1', 'his_recollection', 'cuddleroom', 'cuddleaudio', 'question', 'herstory', 'hisstory', 'slider', 'finalaudio'],
 		onLeave: function(index, nextIndex, direction){
 			var leavingSection = $(this);
 
