@@ -26,7 +26,8 @@ p {
     font-weight: 400;
 
     &.small {
-        font-size: 18px;
+        font-size: 20px;
+        line-height: 30px;
     }
 }
 
@@ -329,6 +330,19 @@ FULL WIDTH SECTIONS
     
 }
 
+.section.screenshot.white {
+    background: #ffffff;
+
+    p {
+        color: $black;
+    }
+
+    &:before {
+        @include overlay(rgba(0,0,0,0));
+        z-index: 9;
+    }
+}
+
 /*======================================
 PAGE OVERLAYS
 ======================================*/
@@ -487,12 +501,11 @@ a.back_to_story {
     cursor: pointer;
 }
 
-a.try_the_demo {
+.try_the_demo {
     position: absolute;
     top: 135px;
     left: 50px;
     font-size: 20px;
-    cursor: pointer;
 }
 
 /*======================================
