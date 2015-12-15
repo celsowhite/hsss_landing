@@ -5,6 +5,26 @@ $(document).ready(function() {
 	$('#main_content').fullpage({
 		navigation: false,
 		anchors:['intro', 'meeting', 'her_recollection', 'act1', 'his_recollection', 'cuddleroom', 'cuddleaudio', 'question', 'herstory', 'hisstory', 'slider', 'finalaudio'],
+		onLeave: function(index, nextIndex, direction){
+			var leavingSection = $(this);
+
+			var sectionTotal = $sectionTotal - 1;
+
+			var calculate_index = index;
+
+			if (direction == 'up') {
+				calculate_index = nextIndex;
+			}
+
+			var percentage;
+			if (direction == 'up' && calculate_index == 1) {calculate_index = 0}
+			if (direction == 'down') {
+				percentage = Math.ceil(calculate_index/sectionTotal * 100);
+			} else {
+				percentage = Math.floor(calculate_index/sectionTotal * 100);
+			}
+			$('.progressbar-cover').css('top' , (percentage) + '%');
+		}
 	});
 
 	/*=== Section Navigation ===*/
@@ -58,4 +78,5 @@ $(document).ready(function() {
 		console.log('yes');
 
 	});
+	$sectionTotal = $('.section').length;
 });

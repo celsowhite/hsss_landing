@@ -177,6 +177,44 @@ ul.menu {
 
 }
 
+/*=== PROGRESS ===*/
+
+.progressbar {
+    width: 15px;
+    height: 100%;
+    position: absolute;
+    background: (white);
+    left : 201px;
+    z-index : 999;
+    transition : all 1s;
+}
+.progressbar-value {
+    font-family: Segoe UI,Arial,sans-serif;
+    position: absolute;
+    display: block;
+    margin: 0;
+    border: 0;
+    width: 15px;
+    height: 100%;
+    overflow: hidden;
+    text-indent: -30px;
+    background: #666;
+}
+.progressbar-cover {
+    position: absolute;
+    display: block;
+    width: 15px;
+    height: 100%;
+    border: 0;
+    left: 0;
+    top: 0%;
+    background: white;
+    transition : all .5s;
+}
+
+#slider { width: 200px; margin-left: 10px; }
+
+
 /*=== Social ===*/
 
 ul.social_list {
