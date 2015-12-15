@@ -88,6 +88,7 @@ a.play_button {
     display: inline-block;
     font-size: 20px;
     color: #fff;
+    cursor: pointer;
 
     .fa-play {
         display: block;
@@ -184,7 +185,7 @@ ul.menu {
     height: 100%;
     position: absolute;
     background: (white);
-    left : 201px;
+    left : 186px;
     z-index : 999;
     transition : all 1s;
 }
@@ -452,16 +453,16 @@ MEDIA PLAYER STYLING
 
 /*=== Audio ===*/
 
-#mep_0 {
+.mejs-audio {
 
-    .mejs-container {
+    &.mejs-container {
         background: rgba(0,0,0,0.4);
         border: 2px solid #fff;
         width: 600px !important;
         height: 60px !important;
     }
 
-    .mejs-container .mejs-controls {
+    .mejs-controls {
         background: none;
         top: 12px;
         padding: 0px 20px;
@@ -514,7 +515,7 @@ MEDIA PLAYER STYLING
 
 /*=== Video ===*/
 
-#mep_2 {
+.mejs-video {
 
     .mejs-controls {
         background: transparent !important;
