@@ -45,6 +45,8 @@ $(document).ready(function() {
 
 	$('audio').mediaelementplayer();
 
+	$('#trailer_video').mediaelementplayer();
+
 	/*=== Page Links ===*/
 
 	$('.about_link').click(function(e){
@@ -68,6 +70,22 @@ $(document).ready(function() {
 		$('#newsletter').toggleClass('visible');
 
 		e.preventDefault();
+
+	});
+
+	$('.play_button').click(function(e){
+
+		$('#trailer').toggleClass('visible');
+
+		$('#trailer_video')[0].player.play();
+
+		e.preventDefault();
+
+	});
+
+	$('#trailer a.back_to_story').click(function(e){
+
+		$('#trailer_video')[0].player.pause();
 
 	});
 
