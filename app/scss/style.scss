@@ -127,6 +127,16 @@ ul {
     float: right !important;
 }
 
+/*=== Scroll Instructions ===*/
+
+p.story_instructions {
+    font-size: 16px;
+    color: #fff;
+    position: absolute;
+    left: 42%;
+    bottom: 40px;
+}
+
 /*=== Up/Down Navigation ===*/
 
 .section_navigation {
@@ -387,6 +397,62 @@ PAGE OVERLAYS
     background: rgba(255,255,255,.3);
 }
 
+
+/*=== Back Button ===*/
+
+a.back_to_story {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    font-size: 16px;
+    cursor: pointer;
+
+    i {
+        font-weight: 800;
+    }
+}
+
+.try_the_demo {
+    position: absolute;
+    top: 142px;
+    left: 50px;
+    font-size: 16px;
+
+    i {
+        font-weight: 800;
+    }
+}
+
+/*======================================
+NEWSLETTER
+======================================*/
+
+div#mc_embed_signup {
+    margin-top: 50px;
+}
+
+input#mce-EMAIL {
+    border: 2px solid #000;
+    padding: 10px 60px 10px 10px;
+    background: transparent;
+    font-size: 20px;
+}
+
+input#mc-embedded-subscribe {
+    background: transparent;
+    border: 2px solid #000;
+    padding: 10px 50px;
+    font-size: 20px;
+    margin-left: -6px;
+    font-weight: 700;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        background: #000;
+        color: $white;
+    }
+}
+
 /*======================================
 TEAM PAGE
 ======================================*/
@@ -497,32 +563,6 @@ h2.title {
 
 input[type="range"]:focus + .rangeslider .rangeslider__handle {
     box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
-}
-
-
-/*=== Back Button ===*/
-
-a.back_to_story {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    font-size: 16px;
-    cursor: pointer;
-
-    i {
-        font-weight: 800;
-    }
-}
-
-.try_the_demo {
-    position: absolute;
-    top: 135px;
-    left: 50px;
-    font-size: 16px;
-
-    i {
-        font-weight: 800;
-    }
 }
 
 /*======================================
