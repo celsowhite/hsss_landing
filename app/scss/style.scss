@@ -55,11 +55,17 @@ COMPONENTS
 /*=== Buttons ===*/
 
 a.primary_button {
-    border: 2px solid #ffffff;
+    border: 2px solid $white;
     display: inline-block;
     padding: 5px 30px;
     font-size: 20px;
     font-weight: 700;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        background: $white;
+        color: #000;
+    }
 }
 
 a.solid_button {
@@ -67,7 +73,7 @@ a.solid_button {
     background: rgba(255,255,255,1);
     display: inline-block;
     width : 155px;
-    margin : 0 25px;
+    margin : 0 5px;
     font-size: 20px;
     font-weight: 700;
     color : #333;
@@ -337,6 +343,7 @@ FULL WIDTH SECTIONS
 
     .section_content {
         width: 50%;
+        text-shadow: 1px 1px #000;
     }
 
     &:before {
@@ -349,8 +356,9 @@ FULL WIDTH SECTIONS
 .section.screenshot.white {
     background: $white;
 
-    p {
+    .section_content p {
         color: $black;
+        text-shadow: none;
     }
 
     &:before {
@@ -445,7 +453,7 @@ input#mc-embedded-subscribe {
     font-size: 20px;
     margin-left: -6px;
     font-weight: 700;
-    transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
 
     &:hover {
         background: #000;
