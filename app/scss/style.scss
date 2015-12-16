@@ -25,9 +25,15 @@ p {
     font-size: 30px;
     font-weight: 400;
 
-    &.small {
+    &.medium {
         font-size: 20px;
-        line-height: 30px;
+        line-height: 35px;
+        margin-bottom: 30px;
+    }
+
+    &.small {
+        font-size: 16px;
+        line-height: 25px;
     }
 }
 
@@ -331,7 +337,7 @@ FULL WIDTH SECTIONS
 }
 
 .section.screenshot.white {
-    background: #ffffff;
+    background: $white;
 
     p {
         color: $black;
@@ -351,7 +357,7 @@ PAGE OVERLAYS
     position: fixed;
     top: 0;
     bottom: 0;
-    background: #fff;
+    background: $white;
     width: 85%;
     right: 0;
     display: flex;
@@ -366,10 +372,6 @@ PAGE OVERLAYS
         width: 90%;
         text-align: center;
         margin: 0 auto;
-
-        p {
-            margin-bottom: 30px;
-        }
     }
 
     &.visible {
@@ -392,42 +394,49 @@ TEAM PAGE
 ul.team_list {
     display: flex;
     flex-flow: row wrap;
+    width: 80%;
+    margin: 0 auto;
 
     li {
         width: 50%;
-        padding: 0px 10px;
-        margin-bottom: 30px;
+        padding: 0px 40px;
+        margin-bottom: 40px;
+
+        &:nth-child(5), &:nth-child(6) {
+            margin-bottom: 0px;
+        }
+    }
+
+    p {
+        margin-bottom: 8px;
     }
 }
 
-.team_member_container {
-    display: flex;
+h1.name {
+    text-transform: none;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
 
-    .image_social {
-        width: 30%;
-        padding-right: 10px;
+h2.title {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: .1em;
 
-        img {
-            display: block;
-            max-width: 100%;
-        }
-    }
-
-    .bio {
-        width: 65%;
-        text-align: left;
-
-        p {
-            font-size: 18px;
-        }
+    &:after {
+        content: "";
+        width: 30px;
+        height: 2px;
+        background: black;
+        display: block;
+        margin: 0 auto;
+        margin-top: 10px;
     }
 }
 
 .team_social {
-    background: #000;
-    color: #fff;
-    padding: 3px 0px;
-
     i {
         padding: 0px 3px;
     }
@@ -497,15 +506,23 @@ a.back_to_story {
     position: absolute;
     top: 50px;
     left: 50px;
-    font-size: 20px;
+    font-size: 16px;
     cursor: pointer;
+
+    i {
+        font-weight: 800;
+    }
 }
 
 .try_the_demo {
     position: absolute;
     top: 135px;
     left: 50px;
-    font-size: 20px;
+    font-size: 16px;
+
+    i {
+        font-weight: 800;
+    }
 }
 
 /*======================================
