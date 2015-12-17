@@ -17,7 +17,7 @@ fader  = {
         elem.removeClass('transit');
         //TIMEOUT HERE FOR CLASS REMOVAL
         //THIS SHOULD BE IN AN INIT FUNC
-      }, 500);
+      }, 100);
     }
     this.prevElem = elem;
   },
