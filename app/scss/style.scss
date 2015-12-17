@@ -137,13 +137,17 @@ ul {
     filter: blur(10px) !important;
 }
 
+.margin-bottom-40 {
+    margin-bottom: 40px;
+}
+
 /*=== Scroll Instructions ===*/
 
 p.story_instructions {
     font-size: 16px;
     color: #fff;
     position: absolute;
-    left: 42%;
+    left: 44%;
     bottom: 40px;
 }
 
@@ -212,10 +216,11 @@ ul.menu {
     height: 100%;
     position: absolute;
     background: (white);
-    left : 186px;
+    left : 15%;
     z-index : 999;
     transition : all 1s;
 }
+
 .progressbar-value {
     font-family: Segoe UI,Arial,sans-serif;
     position: absolute;
@@ -479,7 +484,7 @@ TEAM PAGE
 ul.team_list {
     display: flex;
     flex-flow: row wrap;
-    width: 80%;
+    width: 75%;
     margin: 0 auto;
 
     li {
