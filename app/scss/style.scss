@@ -12,6 +12,10 @@ FONTS
     -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+    background : #000;
+}
+
 body, p, h1, h2, h3 {
   font-family: "proxima-nova", sans-serif;
 }
@@ -134,7 +138,7 @@ ul {
 }
 
 .blur {
-    filter: blur(10px) !important;
+    filter: blur(7px) !important;
 }
 
 .margin-bottom-40 {
@@ -266,6 +270,9 @@ OVERALL STRUCTURE
 #main_content {
     width: 85%;
     float: right;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000;
 }
 
 /*======================================
