@@ -521,7 +521,7 @@ h2.title {
 .range-container {
     width : 50%;
     margin : auto;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 .rangeslider,
 .rangeslider__fill {
@@ -536,7 +536,7 @@ h2.title {
 }
 
 .rangeslider--horizontal {
-    height: 26px;
+    height: 21px;
     width: 100%;
 }
 
@@ -558,13 +558,13 @@ h2.title {
     border: 1px solid #ccc;
     cursor: pointer;
     display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     position: absolute;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 .rangeslider--horizontal .rangeslider__handle {
-    top: -7px;
+    top: -5px;
     touch-action: pan-y;
     -ms-touch-action: pan-y;
 }

@@ -8,11 +8,11 @@ $(document).ready(function() {
     console.log('update');
     //0 - 3 | 4 - 6 | 7 - 10
     if (numerical <= 4) {
-      el.textContent = 'they mean less than they say'
+      el.textContent = 'They mean less than they say.'
     } else if (numerical == 5) {
-      el.textContent = 'they mean what they say';
+      el.textContent = 'They mean what they say.';
     } else {
-      el.textContent = 'they mean more than they say';
+      el.textContent = 'They mean more than they say.';
     }
   }
 
