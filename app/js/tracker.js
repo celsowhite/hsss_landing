@@ -7,23 +7,40 @@ var Tracker = function (trackerName, trackerData) {
   this.data = trackerData;
   this.setTrackerSession = function () { this.sessionId = storage.getItem('uuid')};
   this.setTrackerSession();
-};
 
-Tracker.prototype.sendData = function () {
-  var packet = {
-    name: this.name,
-    data: this.data,
-    sessionId: this.sessionId
+Tracker.prototype.sendData = (function () {
+  this.executed = false;
+  return function () {
+    var packet = {
+      name: this.name,
+      data: this.data,
+      sessionId: this.sessionId
+    };
+    if (!this.executed) {
+      this.executed = true;
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:5000/api/datapoints/",
+        data: packet,
+        success: function() {
+          console.log('called')
+        },
+        error: function () {
+          console.log('fail')
+        },
+        dataType: 'json'
+      });
+    }
   };
-  $.ajax({
-    type: "POST",
-    url: "http://localhost:5000/api/datapoints/",
-    data: packet,
-    //success: success,
-    dataType: 'json'
-  });
-};
+})();
 
+  Tracker.prototype.getAllData = function() {
+    return {
+      data: this.data,
+      name: this.name
+    }
+  }
+};
 
 
 //GUID GENERATION
