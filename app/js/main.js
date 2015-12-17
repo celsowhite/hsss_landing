@@ -79,6 +79,8 @@ $(document).ready(function() {
 
 		$('#trailer_video')[0].player.play();
 
+		$('#main_content').addClass('blur');
+
 		e.preventDefault();
 
 	});
@@ -89,11 +91,17 @@ $(document).ready(function() {
 
 	});
 
+	$('.trailer_underlay').click(function(e){
+		//CLOSE THE TRAILER IF WE CLICK OUTSIDE IT
+		$(this).parent('.page_overlay').removeClass('visible');
+		$('#main_content').removeClass('blur');
+		$('#trailer_video')[0].player.pause();
+	});
+
 	$('a.back_to_story').click(function(e){
 
 		$(this).parent('.page_overlay').removeClass('visible');
-
-		console.log('yes');
+		$('#main_content').removeClass('blur');
 
 	});
 	$sectionTotal = $('.section').length;

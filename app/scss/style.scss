@@ -133,6 +133,10 @@ ul {
     float: right !important;
 }
 
+.blur {
+    filter: blur(10px) !important;
+}
+
 /*=== Scroll Instructions ===*/
 
 p.story_instructions {
@@ -402,7 +406,14 @@ PAGE OVERLAYS
 /*=== Video Page Overlay ===*/
 
 .page_overlay#trailer {
-    background: rgba(255,255,255,.3);
+    background: rgba(255,255,255,.75);
+}
+
+.trailer_underlay {
+    position : absolute;
+    top      : 0;
+    width    : 100%;
+    height   : 100%;
 }
 
 
