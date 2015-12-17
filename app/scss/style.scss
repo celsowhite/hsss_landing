@@ -187,6 +187,7 @@ nav.main_panel {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index : 2;
 }
 
 /*=== Logo ===*/
@@ -394,13 +395,12 @@ PAGE OVERLAYS
     background: $white;
     width: 85%;
     right: 0;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .5s ease-in-out;
+    opacity: 1;
+    display : flex;
+    transition: opacity .5s ease;
 
     .content {
         width: 90%;
@@ -410,8 +410,16 @@ PAGE OVERLAYS
 
     &.visible {
         opacity: 1;
-        visibility: visible;
-        transition: opacity .5s ease-in-out;
+        display : flex;
+        transition: opacity .5s ease;
+    }
+
+    &.no-display {
+        display : none;
+    }
+
+    &.hidden {
+        opacity : 0;
     }
 }
 

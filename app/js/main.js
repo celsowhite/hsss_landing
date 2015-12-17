@@ -1,8 +1,12 @@
 $(document).ready(function() {
 
+	var main =  $('#main_content');
+	//set fader blur
+	fader.setBlurBackground(main);
+
 	/*=== Fullpage ===*/
 
-	$('#main_content').fullpage({
+	main.fullpage({
 		navigation: false,
 		anchors:['home', 'meeting', 'her_recollection', 'act1', 'his_recollection', 'cuddleroom', 'cuddleaudio', 'question', 'herstory', 'hisstory', 'slider', 'whatsnext', 'about'],
 		onLeave: function(index, nextIndex, direction){
@@ -51,7 +55,8 @@ $(document).ready(function() {
 
 	$('.about_link').click(function(e){
 
-		$('#about').toggleClass('visible');
+		var about = $('#about');
+		fader.changeOverlay(about);
 
 		e.preventDefault();
 
@@ -59,15 +64,17 @@ $(document).ready(function() {
 
 	$('.team_link').click(function(e){
 
-		$('#team').toggleClass('visible');
-
+		var team = $('#team');
+		fader.changeOverlay(team);
 		e.preventDefault();
+
 
 	});
 
 	$('.newsletter_link').click(function(e){
 
-		$('#newsletter').toggleClass('visible');
+		var newsletter = $('#newsletter');
+		fader.changeOverlay(newsletter);
 
 		e.preventDefault();
 
@@ -75,11 +82,10 @@ $(document).ready(function() {
 
 	$('.play_button').click(function(e){
 
-		$('#trailer').toggleClass('visible');
+		var trailer = $('#trailer');
+		fader.toggleElemOn(trailer);
 
 		$('#trailer_video')[0].player.play();
-
-		$('#main_content').addClass('blur');
 
 		e.preventDefault();
 
@@ -88,20 +94,26 @@ $(document).ready(function() {
 	$('#trailer a.back_to_story').click(function(e){
 
 		$('#trailer_video')[0].player.pause();
+		fader.toggleElemOff($('#trailer'));
 
+	});
+
+	$('.main_panel').click(function(e) {
+		$('#trailer_video')[0].player.pause();
+		//GRAB ELEMENTS THAT ARE ACTIVE BUT AREN'T IN THE PROCESS OF FADING
+		var activeElements = $('.fader__active').not('.transit');
+		if (activeElements) {fader.toggleElemOff(activeElements);}
 	});
 
 	$('.trailer_underlay').click(function(e){
 		//CLOSE THE TRAILER IF WE CLICK OUTSIDE IT
-		$(this).parent('.page_overlay').removeClass('visible');
-		$('#main_content').removeClass('blur');
 		$('#trailer_video')[0].player.pause();
+		fader.toggleElemOff($('#trailer'));
 	});
 
 	$('a.back_to_story').click(function(e){
-
-		$(this).parent('.page_overlay').removeClass('visible');
-		$('#main_content').removeClass('blur');
+		var overlay = $(this).parent('.page_overlay');
+		fader.changeOverlay(overlay);
 
 	});
 	$sectionTotal = $('.section').length;
