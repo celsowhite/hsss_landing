@@ -7,6 +7,7 @@ var Tracker = function (trackerName, trackerData) {
   this.data = trackerData;
   this.setTrackerSession = function () { this.sessionId = storage.getItem('uuid')};
   this.setTrackerSession();
+};
 
 Tracker.prototype.sendData = (function () {
   this.executed = false;
@@ -34,13 +35,17 @@ Tracker.prototype.sendData = (function () {
   };
 })();
 
-  Tracker.prototype.getAllData = function() {
-    return {
-      data: this.data,
-      name: this.name
-    }
+Tracker.prototype.getAllData = function() {
+  return {
+    data: this.data,
+    name: this.name
   }
 };
+
+Tracker.prototype.updateData = function(data) {
+  this.data = data;
+};
+
 
 
 //GUID GENERATION
