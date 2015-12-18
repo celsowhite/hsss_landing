@@ -28,7 +28,7 @@ $(document).ready(function() {
 			} else {
 				percentage = Math.floor(calculate_index/sectionTotal * 100);
 			}
-			$('.progressbar-cover').css('top' , (percentage) + '%');
+			$('.progressbar-cover').css('top' , (percentage/3) + '%');
 		}
 	});
 
