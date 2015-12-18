@@ -190,6 +190,38 @@ nav.main_panel {
     z-index : 2;
 }
 
+/*=== Act Container ===*/
+
+.act_container {
+    position   : absolute;
+    text-align : right;
+    right      : 7px;
+    top        : 7px;
+    font-size  : 20px;
+    color      : #888;
+
+    h6 {
+        margin: 0;
+    }
+
+    .act-marker {
+        display    : block;
+        position   : absolute;
+        margin     : 0;
+        top        : 180px;
+        height     : 2px;
+        width      : 15px;
+        background : #888;
+        text-align : right;
+        right      : -9px;
+    }
+
+    h6.unreleased {
+        position : relative;
+        top      : 175px;
+    }
+}
+
 /*=== Logo ===*/
 
 .logo_container {
