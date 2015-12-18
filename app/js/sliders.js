@@ -18,7 +18,10 @@ $(document).ready(function() {
     }
   }
 
-  $('.slider_send').click(function(e) {
+  var $Slider_Send = $('.slider_send');
+  $Slider_Send.click(function(e) {
+    $Slider_Send.text('Sent');
+    $Slider_Send.addClass('disabled');
     meaningSlider.sendData();
   });
 

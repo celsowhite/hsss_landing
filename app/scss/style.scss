@@ -71,6 +71,11 @@ a.primary_button {
         background: $white;
         color: #000;
     }
+
+    &.disabled {
+        background : $white !important;
+        color : #000 !important;
+    }
 }
 
 a.solid_button {
