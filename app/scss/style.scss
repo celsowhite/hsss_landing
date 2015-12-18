@@ -207,7 +207,7 @@ nav.main_panel {
     position   : absolute;
     text-align : right;
     right      : 7px;
-    top        : 7px;
+    height     : 100%;
     font-size  : 20px;
     color      : #888;
 
@@ -219,7 +219,7 @@ nav.main_panel {
         display    : block;
         position   : absolute;
         margin     : 0;
-        top        : 180px;
+        top        : 33%;
         height     : 2px;
         width      : 15px;
         background : #888;
@@ -229,7 +229,7 @@ nav.main_panel {
 
     h6.unreleased {
         position : relative;
-        top      : 175px;
+        top      : 33.5%;
     }
 }
 
