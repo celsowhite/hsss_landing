@@ -122,6 +122,16 @@ $(document).ready(function() {
 		$('.progressbar-cover').css('top' , (90) + '%');
 		$.fn.fullpage.moveTo(12);
 	});
+	var she_clicked = new Tracker('cuddle_believe', 'she');
+	var he_clicked = new Tracker('cuddle_believe', 'he');
+
+	$('.she').click(function(e) {
+		she_clicked.sendData();
+	});
+
+	$('.he').click(function(e) {
+		he_clicked.sendData();
+	});
 
 	$sectionTotal = $('.section').length;
 });
