@@ -1,4 +1,4 @@
-fader  = {
+Fader  = {
   setBlurBackground : function (elem) {
     this.blurBackground = elem;
   },

@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
 	var main =  $('#main_content');
-	//set fader blur
-	fader.setBlurBackground(main);
+	//set Fader blur
+	Fader.setBlurBackground(main);
 
 	/*=== Fullpage ===*/
 
@@ -10,6 +10,7 @@ $(document).ready(function() {
 		navigation: false,
 		anchors:['home', 'meeting', 'her_recollection', 'act1', 'his_recollection', 'cuddleroom', 'cuddleaudio', 'question', 'herstory', 'hisstory', 'slider', 'whatsnext', 'about'],
 		onLeave: function(index, nextIndex, direction){
+			console.log(index, nextIndex, direction);
 			var leavingSection = $(this);
 
 			var sectionTotal = $sectionTotal - 1;
@@ -56,7 +57,7 @@ $(document).ready(function() {
 	$('.about_link').click(function(e){
 
 		var about = $('#about');
-		fader.changeOverlay(about);
+		Fader.changeOverlay(about);
 
 		e.preventDefault();
 
@@ -65,7 +66,7 @@ $(document).ready(function() {
 	$('.team_link').click(function(e){
 
 		var team = $('#team');
-		fader.changeOverlay(team);
+		Fader.changeOverlay(team);
 		e.preventDefault();
 
 
@@ -74,7 +75,7 @@ $(document).ready(function() {
 	$('.newsletter_link').click(function(e){
 
 		var newsletter = $('#newsletter');
-		fader.changeOverlay(newsletter);
+		Fader.changeOverlay(newsletter);
 
 		e.preventDefault();
 
@@ -83,7 +84,7 @@ $(document).ready(function() {
 	$('.play_button').click(function(e){
 
 		var trailer = $('#trailer');
-		fader.toggleElemOn(trailer);
+		Fader.toggleElemOn(trailer);
 
 		$('#trailer_video')[0].player.play();
 
@@ -94,7 +95,7 @@ $(document).ready(function() {
 	$('#trailer a.back_to_story').click(function(e){
 
 		$('#trailer_video')[0].player.pause();
-		fader.toggleElemOff($('#trailer'));
+		Fader.toggleElemOff($('#trailer'));
 
 	});
 
@@ -102,19 +103,25 @@ $(document).ready(function() {
 		$('#trailer_video')[0].player.pause();
 		//GRAB ELEMENTS THAT ARE ACTIVE BUT AREN'T IN THE PROCESS OF FADING
 		var activeElements = $('.fader__active').not('.transit');
-		if (activeElements) {fader.toggleElemOff(activeElements);}
+		if (activeElements) {Fader.toggleElemOff(activeElements);}
 	});
 
 	$('.trailer_underlay').click(function(e){
 		//CLOSE THE TRAILER IF WE CLICK OUTSIDE IT
 		$('#trailer_video')[0].player.pause();
-		fader.toggleElemOff($('#trailer'));
+		Fader.toggleElemOff($('#trailer'));
 	});
 
 	$('a.back_to_story').click(function(e){
 		var overlay = $(this).parent('.page_overlay');
-		fader.changeOverlay(overlay);
+		Fader.changeOverlay(overlay);
 
 	});
+
+	$('.whatsnext_link').click(function(e) {
+		$('.progressbar-cover').css('top' , (90) + '%');
+		$.fn.fullpage.moveTo(12);
+	});
+
 	$sectionTotal = $('.section').length;
 });
