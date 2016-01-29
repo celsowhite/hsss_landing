@@ -648,22 +648,20 @@ h2.title {
 .rangeslider,
 .rangeslider__fill {
     display: block;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .rangeslider {
     position: relative;
-    border: white 1px solid;
+    background: rgba(255, 255, 255, .4);
     width : 60%;
 }
 
 .rangeslider--horizontal {
-    height: 21px;
+    height: 80px;
     width: 100%;
 }
 
 .rangeslider__fill {
-    background: rgba(255, 255, 255, .4);
     position: absolute;
 }
 .rangeslider--horizontal .rangeslider__fill {
@@ -676,17 +674,14 @@ h2.title {
 }
 
 .rangeslider__handle {
-    background: white;
-    border: 1px solid #ccc;
+    background: #111111;
     cursor: pointer;
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 9px;
+    height: 80px;
     position: absolute;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 .rangeslider--horizontal .rangeslider__handle {
-    top: -5px;
     touch-action: pan-y;
     -ms-touch-action: pan-y;
 }
