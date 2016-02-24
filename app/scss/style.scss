@@ -804,6 +804,13 @@ ABOUT PAGE
         padding  : 0 90px 0 60px;
         overflow : auto;
         height   : 80%;
+
+        p {
+            position : absolute;
+            top : 40%;
+            transform: translate(0, -50%);
+            padding-right : 90px;
+        }
     }
 }
 
@@ -822,6 +829,10 @@ $breakpoint-tablet: 768px;
     .about_page {
         .section_content {
             padding : 0 20px 0 20px !important;
+
+            p {
+                padding-right: 20px;
+            }
         }
     }
 
